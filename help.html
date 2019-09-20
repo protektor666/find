@@ -1,0 +1,47 @@
+<html>
+ <head>
+  <meta charset="utf-8">   
+  <link rel="stylesheet" href="z3.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel='shortcut icon' href='favicon.ico'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+ <body>
+  <div class="w3-top">
+   <div class="w3-bar w3-black w3-card-2">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"> <img src="bars.svg" width="27px" height="27px"></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Главная</a>
+    <a href="help.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Использование</a> 
+    <a href="feedback.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Обратная связь</a> 
+    <a href="https://www.patreon.com/Zoltan9119" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Patreon</a>
+   </div>
+  </div>
+  <!-- Навигация для м.э (выпадающее окно) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+      <a href="help.html" class="w3-bar-item w3-button w3-padding-large">Использование</a>
+      <a href="feedback.html" class="w3-bar-item w3-button w3-padding-large">Обратная связь</a>
+      <a href="https://www.patreon.com/Zoltan9119" class="w3-bar-item w3-button w3-padding-large">Patreon</a>
+    </div>
+  <br><br>
+  <center>
+       <h3>
+   <p> 1) Нажмите на карту, где вы хотите найти фотографии, после нажатия вы должны увидеть красный круг, который вы можете перетаскивать и измениять его радиус
+   <p> 2) Введите число под знаком «Количество фотографий», чтобы указать количество фотографий, которые вы хотите найти в выбранном месте.
+   <p> 3) (Опционально). Введите число под знаком "Пропустить # фотографий", чтобы пропустить N-oе количество фотографий и получить следующий набор фотографий.
+   <p> 4) Нажмите на кнопку «Найти фото», и вы увидите фотографии ниже.
+   </h3>
+  </center>
+  	<script>
+        	  // Изменение навигации при м. э. !=
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }     
+    </script>
+    <!-- symbol define -->
+ </body>
+</html>

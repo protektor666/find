@@ -1,0 +1,43 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="z3.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel='shortcut icon' href='favicon.ico'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+ <body>
+  <div class="w3-top">
+   <div class="w3-bar w3-black w3-card-2">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><img src="bars.svg" width="27px" height="27px"></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Главная</a>
+    <a href="help.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Использование</a> 
+    <a href="feedback.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Обратная связь</a> 
+	<a href="https://www.patreon.com/Zoltan9119" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Patreon</a>    
+   </div>
+  </div>
+  <!-- Навигация для м.э (выпадающее окно) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+      <a href="help.html" class="w3-bar-item w3-button w3-padding-large">Использование</a>
+      <a href="feedback.html" class="w3-bar-item w3-button w3-padding-large">Обратная связь</a>
+      <a href="https://www.patreon.com/Zoltan9119" class="w3-bar-item w3-button w3-padding-large">Patreon</a>
+    </div>
+ <br><br>
+ <center>
+ <h1>
+ <p>  Есть идеи или проблемы с сайтом? Напиши мне: Zoltan9119@gmail.com
+ </h1>
+ </center>
+ 	<script>
+        	  // Изменение навигации при м. э. !=
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }     
+    </script>
+ </body>
+</html>

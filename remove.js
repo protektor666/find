@@ -1,0 +1,1 @@
+window.onload = function () {document.getElementById('footer').nextSibling.nextSibling.innerHTML=""}

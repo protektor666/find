@@ -1,0 +1,163 @@
+.inputPercent {width: 120px}
+/*#container p { display: inline }
+*/
+.cbalink{
+display:none;
+}
+.help-tip{
+    display: inline;
+    position: absolute;
+    text-align: center;
+    background-color: #BCDBEA;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 22px;
+    cursor: default;
+    margin-left: 5px;
+}
+.help-tip:before{
+    content:'?';
+    font-weight: bold;
+    color:#fff;
+}
+.help-tip:hover p{
+    display:block;
+    transform-origin: 100% 0%;
+
+    -webkit-animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+.help-tip p{    /* The tooltip */
+    display: none;
+    text-align: center;
+    background-color: #1E2021;
+    padding: 10px;
+    width: 200px;
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    right: -4px;
+    color: #FFF;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.help-tip p:before{ /* The pointer of the tooltip */
+    position: absolute;
+    content: '';
+    width:0;
+    height: 0;
+    border:6px solid transparent;
+    border-bottom-color:#1E2021;
+    right:8px;
+    top:-12px;
+}
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+    width:100%;
+    height:40px;
+    content:'';
+    position: absolute;
+    top:-2px;
+    left:0;
+}
+/* responsive img */
+.img-div { /*height:100%;*/ width:100%;}
+img { max-width:100% }
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+    0% { 
+        opacity:0; 
+        transform: scale(0.6);
+    }
+    100% {
+        opacity:100%;
+        transform: scale(1);
+    }
+}
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
+}
+/* back to top */
+#button {
+  display: inline-block;
+  background-color: #201310;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+i {
+  border: solid white;
+  border-width: 0 7px 7px 0;
+  display: inline-block;
+  padding: 7;
+  margin-top: 17px;
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+/* while font not loaded*/
+
+@font-face {
+  font-family: 'Arvo';
+  font-display: auto;
+  src: local('Arvo'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) 
+  format('woff2');
+}
+/* footer */
+/*
+body, html
+{
+    margin: 0px; padding: 0px;
+}
+
+#footer
+{
+    width: 100%;
+    height: 50px;
+    position: fixed; 
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+}
+*/
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  height: 50px;
+}

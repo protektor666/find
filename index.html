@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>VK Find</title>
+    <meta name="description" content="Поиск фотографий по местности в Вконтакте"> 
+    <link rel='shortcut icon' href='favicon.ico' />
+    <style>
+      #map {
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+
+  </head>
+ 
+  <body>
+	<div class="w3-top">
+	 <div class="w3-bar w3-black w3-card-2">
+	  <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><h1><img src="bars.svg" width="27px" height="27px" alt="VK Find"></a></h1>
+	  <a href="index.html#" class="w3-bar-item w3-button w3-padding-large">Главная</a>
+	  <a href="help.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Использование</a>
+	  <a href="feedback.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Обратная связь</a>
+	  <a href="https://www.patreon.com/Zoltan9119" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Patreon</a>
+	  <a href="en/index.php.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">English</a>
+	 </div>
+	</div>
+	<!-- Навигация для м.э (выпадающее окно) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+      <a href="help.html" class="w3-bar-item w3-button w3-padding-large">Использование</a>
+      <a href="feedback.html" class="w3-bar-item w3-button w3-padding-large">Обратная связь</a>
+      <a href="https://www.patreon.com/Zoltan9119" class="w3-bar-item w3-button w3-padding-large">Patreon</a>
+      <a href="en/index.php.html" class="w3-bar-item w3-button w3-padding-large">English</a>
+    </div>
+    <br><br>
+	<center><H1>Выберите место</H1>
+      <div id="map" style="height: 60%; width: 70%;"> </div>
+    </center>  
+	<!-- draw map and circle-->
+	<script src="circle.js"></script>
+	<!-- initialize Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1JyD55BNA2e2FYX-i6UKlQgEQ_UEEAak&amp;callback=initMap"></script>
+    <div class="w3-display-container w3-center" width="200px">
+		<iframe name="hiddenFrame" width="90%" style="display:none;"></iframe>
+
+		<form method="post"   onsubmit="SubmitFormData(); return false;" >   
+			<input hidden name="radius" id="rad" value="">
+			<input hidden name="lat" id="lat" value="">
+			<input hidden name="lng" id="lng" value="">
+			Кол-во фото: <br>
+			<input type="number" class="inputPercent w3-border" min="0" id="count" name="count" value="" max="1000" required="true">
+			<br>
+				<input readonly class="w3-black w3-button w3-small" style="margin-left: -170px; position: absolute; width: 100px;" type="text" onclick="document.getElementById('shareModal').style.display='block'" id="share" value="Поделится">
+				Пропустить # фото:<br>
+				<div class="" style="margin-right: 20px;">
+					<input type="number" class="inputPercent w3-border" style=" margin-left:18px" min="0" id="offset" name="offset" max="3000" value="" >
+				<div class="help-tip">
+				    <p>Количество фотографий которое будет пропущенно.</p>
+				</div>
+			</div>
+		    <input id="submit" class="w3-button w3-black w3-section" type="submit"   value="Найти Фото"> 
+		</form> 
+    </div>
+		
+    <div id="shareModal" class="w3-modal">
+     <div class="w3-modal-content w3-animate-top w3-card-4 ">
+      <header class="w3-container w3-white w3-teal w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('shareModal').style.display='none'" 
+       class="w3-button w3-teal w3-white w3-xlarge w3-display-topright">&#216;</span>
+       <div class="w3-content w3-section">
+           <br>
+        <input class="w3-input w3-border w3-light-grey w3-large" id="shareLink">
+        <button class="w3-border w3-light-grey w3-section w3-button" onclick="copyText()">Скопировать</button>
+       </div>
+     </div>
+    </div>
+<!--
+    <input class="inputPercent w3-border" style="margin-left:18px" id="share" name="share" value="https://nearphoto.000webhostapp.com/?count=23&rad=50000&lat=50.387&lng=30.1156" >
+-->
+
+    <link rel="stylesheet" href="z3.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="remove.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="post.js"></script>
+	<script>
+	
+	$('#share').hide()
+	
+    // Изменение навигации при м. э. !=
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }     
+        
+    var modal = document.getElementById('shareModal');
+    window.onclick = function(event) {
+     if (event.target == modal) {
+      modal.style.display = "none";
+     }
+    }
+    
+    </script>
+
+	<a id="button"> <i class="up"></i> </a> <!-- back to top -->  
+            
+    <div class="img-div" id="results">
+    </div>	
+    
+    <div id="footer"> 
+        <footer class="w3-container w3-center w3-opacity w3-light-grey ">
+        <p class="w3-medium"><a href="https://vk.com/xss_injection" target="_blank">Создатель</a></p>
+        </footer>
+    </div>
+
+  </body>
+</html>
