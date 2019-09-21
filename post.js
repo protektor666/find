@@ -87,7 +87,7 @@ $('#share').on('click', function(e) {
     var count = document.getElementById("count").value
     
     var shareLink = document.getElementById("shareLink");
-    shareLink.value = 'https://nearphoto.000webhostapp.com/?count='+ count +'&rad='+rad+'&lat='+lat+'&lng='+lng+'';
+    shareLink.value = 'https://protektor666.github.io/find/?count='+ count +'&rad='+rad+'&lat='+lat+'&lng='+lng+'';
 });
 
 
